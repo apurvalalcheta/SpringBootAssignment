@@ -68,7 +68,7 @@ public class AssetController {
 			public List<Assetmodel> getAsset(){
 				return repo.findAll();
 			}
-	//Search based on name
+	//Search asset based on name
 			@GetMapping("/asset/{name}")
 			public List<Assetmodel> getassetbyname(@PathVariable String name) {
 				return repo.findByName(name);
@@ -108,7 +108,7 @@ public class AssetController {
 			
 			
 			
-	//Assign Asset
+	//Assign Asset to employee if "Available" or "Recovered"
 			@PutMapping("/asset/{name}/status/{status}/employee/{eid}")
 			public String assignAsset(@PathVariable String name,@PathVariable String status,@PathVariable int eid) {
 				
@@ -134,7 +134,7 @@ public class AssetController {
 				}
 				
 			}
-	//Recover asset
+	//Recover asset from employee if asset is there with employee
 			@PutMapping("/asset/{eid}")
 			public String recoverAsset(@PathVariable int eid) {
 				Employee e=erepo.getOne(eid);
@@ -151,10 +151,10 @@ public class AssetController {
 					Assetmodel a=repo.getOne(i);
 					a.setStatus("Recovered");
 					repo.save(a);
-					return "Recovered Successfully";
+					return "Asset Recovered Successfully";
 				}
 			}
-	// Delete asset
+	// Delete asset if asset status is not "Available"
 			@DeleteMapping("/asset/{aid}")
 			public String deleteAsset(@PathVariable int aid) {
 				Assetmodel a=repo.getOne(aid);
@@ -163,7 +163,7 @@ public class AssetController {
 					return "Sorry,Asset is in Assigned state";
 				}
 				else {
-					repo.delete(a);
+					repo.deleteById(aid);
 					return "Asset deleted successfully";
 				}
 			}

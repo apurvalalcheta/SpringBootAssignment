@@ -12,10 +12,26 @@ public class Assetmodel {
 	@Id
 	private int aid;
 	private String name;
-	private Date date;
+	private String date;
 	private String conditionnote;
 	private String category;
 	private String status;
+	
+	public Assetmodel(int aid, String name, String date, String conditionnote, String category, String status) {
+		super();
+		this.aid = aid;
+		this.name = name;
+		this.date = date;
+		this.conditionnote = conditionnote;
+		this.category = category;
+		this.status = status;
+	}
+	
+	public Assetmodel() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -28,10 +44,10 @@ public class Assetmodel {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getConditionnote() {

@@ -11,6 +11,17 @@ public class Assetcategories {
 	private int cid;
 	private String cname;
 	private String description;
+	
+	public Assetcategories() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Assetcategories(int cid, String cname, String description) {
+		super();
+		this.cid = cid;
+		this.cname = cname;
+		this.description = description;
+	}
 	public int getCid() {
 		return cid;
 	}

@@ -11,6 +11,23 @@ public class Employee {
 	private String designation;
 	private String assignedobject;
 	private int assignedassetid;
+	
+	public Employee(int eid, String fullname, String designation, String assignedobject, int assignedassetid) {
+		super();
+		this.eid = eid;
+		this.fullname = fullname;
+		this.designation = designation;
+		this.assignedobject = assignedobject;
+		this.assignedassetid = assignedassetid;
+	}
+	
+	
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public int getAssignedassetid() {
 		return assignedassetid;
 	}
